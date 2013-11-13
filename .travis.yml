@@ -27,4 +27,8 @@ before_script:
   - chmod 777 ./buildstuff.sh
   - chmod +x wait_for_emulator
   - ./wait_for_emulator
+  - adb install apks/android-server-2.32.0.apk
+  - adb shell am start -a android.intent.action.MAIN -n org.openqa.selenium.android.app/.MainActivity -e debug true
+  - adb forward tcp:8080 tcp:8080
+  - wget --server-response http://localhost:8080/wd/hub
 script: "./buildstuff.sh"
