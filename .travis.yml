@@ -30,5 +30,5 @@ before_script:
   - adb install apks/android-server-2.32.0.apk
   - adb shell am start -a android.intent.action.MAIN -n org.openqa.selenium.android.app/.MainActivity -e debug true
   - adb forward tcp:8080 tcp:8080
-  - wget --server-response http://localhost:8080/wd/hub
+  - wget --server-response http://localhost:8080/wd/hub/status
 script: "./buildstuff.sh"
